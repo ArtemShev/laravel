@@ -1,56 +1,41 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Welcome</title>
-</head>
-<body>
-    <header class="adapt-header">
-        <section class="container page-navbar">
-            <div class="left-navbar">
-                <a href="#" class="title">MainNews</a>
-            </div>
-            <div class="right-navbar">
-                <div class="navbar-registration">
-                    <a href="./login.php" class="registration-link">Войти</a>
-                    <a href="./registr.php" class="registration-link">Регистрация</a>
+@extends('layouts.main')
+@section('header')
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Новости по категории</h1>
+        </div>
+    </div>
+@endsection
+@section('content')
+    @forelse($newsList as $news)
+       <div class="col">
+         <div class="card shadow-sm">
+             <img src="{{ $news['image'] }}">
+
+           <div class="card-body">
+              <strong>
+                <a href="{{route('news.show',['category_name'=>$news['category_name'],'id' => $news['id']])}}">
+                    {{$news['title']}}
+                </a>
+              </strong>
+              <p class="card-text">
+                  {!! $news['description'] !!}
+              </p>
+              <p class="card-text">Категория: {{$news['category_name']}}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <a href="{{route('news.show',['category_name'=>$news['category_name'],'id' => $news['id']])}}">
+                        Подробнее
+                    </a>
                 </div>
-            </div>
-        </section>
-    </header>
-    <main>
-        <div class="menu">
-            <div class="center-navbar">
-                <a href="./news/categories_list" class="center-nav-link">категории</a>
-                <a href="./" class="center-nav-link">новости</a>
-                <a href="./" class="active-link center-nav-link">добавить новость</a>
+                  <small class="text-muted">Статус: <em>{{ $news['status'] }}</em></small>
+                  <small class="text-muted">Автор: <em> {{ $news['author'] }}</em></small>
             </div>
         </div>
-        <?php foreach($newsList as $news): ?>
-            <div class="news">
-                 <h3>
-                    <a href="<?=route('news.show',['category_name'=>$news['category_name'],'id' => $news['id']])?>">
-                        <?=$news['title']?>
-                    </a>
-                </h3>
-                <img src="<?=$news['image']?>">
-                <br>
-                <p>Статус: <em><?=$news['id']?></em></p>
-                <p>Статус: <em><?=$news['status']?></em></p>
-                <p>Автор: <em><?=$news['author']?></em></p>
-                <p>Категория: <em><?=$news['category_name']?></em></p>
-                <p><?=$news['description']?></p>
-            </div>
-            <?php endforeach; ?>
-            </main>
-            <footer class="footer" >
-                <span class="footer-info">
-                Subscribe on us!
-                </span>
-            </footer>
-            </body>
-            </html>
+    </div>
+</div>
+    @empty
+        <h2>Новостей нет</h2>
+    @endforelse
+@endsection

@@ -1,49 +1,40 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Welcome</title>
-</head>
-<body>
-    <header class="adapt-header">
-        <section class="container page-navbar">
-            <div class="left-navbar">
-                <a href="#" class="title">MainNews</a>
-            </div>
-            <div class="right-navbar">
-                <div class="navbar-registration">
-                    <a href="./login.php" class="registration-link">Войти</a>
-                    <a href="./registr.php" class="registration-link">Регистрация</a>
-                </div>
-            </div>
-        </section>
-    </header>
-    <main>
-        <div class="menu">
-            <div class="center-navbar">
-                <a href="./news/categories_list" class="center-nav-link">категории</a>
-                <a href="./" class="center-nav-link">новости</a>
-                <a href="./" class="active-link center-nav-link">добавить новость</a>
-            </div>
+@extends('layouts.main')
+@section('header')
+    <div class="row py-lg-5">
+        <div class="col-lg-3 col-md-8 mx-auto">
+            <h1 class="fw-light">Категории</h1>
         </div>
-        <H1 class="h1-category">Категории</H1>
-        <?php foreach($categoriesList as $category): ?>
-            <div class="category">
-                <h3>
-                    <a class="category-link" href="<?=route('news', ['category_name' => $category])?>">
-                        <?=$category?>
-                    </a>
-                </h3>
-        <?php endforeach; ?>
-    </main>
-    <footer class="footer" >
-        <span class="footer-info">
-            Subscribe on us!
-        </span>
-    </footer>
-    </body>
-</html>
+    </div>
+@endsection
+@section('content')
+    @forelse($categoriesList as $category)
+        <div class="list-group">
+            <div class="d-flex gap-2 w-100 justify-content-between">
+            <a href="{{route('news', ['category_name' => $category])}}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <h6 class="mb-0">{{$category}}</h6>
+            </a>
+        </div>
+        </div>
+
+    @empty
+        <h2>Категорий нет</h2>
+    @endforelse
+@endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

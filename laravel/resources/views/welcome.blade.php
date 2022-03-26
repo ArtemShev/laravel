@@ -1,42 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Welcome</title>
-</head>
-<body>
-    <header class="adapt-header">
-        <section class="container page-navbar">
-            <div class="left-navbar">
-                <a href="#" class="title">MainNews</a>
-            </div>
-            <div class="right-navbar">
-                <div class="navbar-registration">
-                    <a href="./login.php" class="registration-link">Войти</a>
-                    <a href="./registr.php" class="registration-link">Регистрация</a>
-                </div>
-            </div>
-        </section>
-    </header>
-    <main>
-        <div class="welcome-info">
-            <span>Hello, welcome to my news site!</span>
-        </div>
-        <div class="menu">
-            <div class="center-navbar">
-                <a href="./news/categories_list" class="center-nav-link">категории</a>
-                <a href="./" class="center-nav-link">новости</a>
-                <a href="./" class="active-link center-nav-link">добавить новость</a>
-            </div>
-        </div>
-    </main>
-    <footer class="footer" >
-        <span class="footer-info">
-            Subscribe on us!
-        </span>
-    </footer>
-</body>
-</html>
+
+@extends('layouts.main')
+@section('header')
+	<div class="row py-lg-5">
+		<div class="col-lg-6 col-md-8 mx-auto">
+			<h1 class="fw-light">Welcome</h1>
+		</div>
+	</div>
+@endsection
+@section('content')
+<div class="welcome-info">
+    <span>Hello, welcome to my news site!</span>
+</div>
+@endsection

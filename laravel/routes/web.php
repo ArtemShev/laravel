@@ -26,7 +26,8 @@ Route::group(['prefix'=>'admin', 'as' =>'admin'], function()
     Route::resource('/categories',AdminCategoryController::class);
     Route::resource('/news',AdminNewsController::class);
 });
-Route::get('news/categories_list', [CategoryController::class,'CategoriesList'])->name('news.CategoryList');
+Route::get('/categories', [CategoryController::class,'CategoriesList'])->name('news.CategoryList');
+// Route::get('/news', [ NewsController::class, 'allNews'])-> name('all_news');
 Route::get('/news/{category_name}', [ NewsController::class, 'index'])-> name('news');
 Route::get('/news/{category_name}/{id}', [ NewsController::class, 'show'])
 ->where('id', '\d+')
