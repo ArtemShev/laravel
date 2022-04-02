@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Symfony\Polyfill\Intl\Idn\Idn;
+use App\Http\Controllers\Controller;
+use App\Models\News;
+
 
 class NewsController extends Controller
 {
@@ -22,4 +24,19 @@ class NewsController extends Controller
 			'news' => $this->getNews($category_name,$id)
 		]);
 	}
+
+	public function store(Request $request)
+
+	{
+		$request->validate([
+			'name'=>['required','string']
+		]);
+		return response()->json($request->only('name','email','description'),201);
+	}
+
+	public function __invoke()
+	{
+		return view('news.subResponse');
+	}
+
 }
