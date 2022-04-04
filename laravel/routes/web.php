@@ -30,7 +30,7 @@ Route::get('/categories', [CategoryController::class,'CategoriesList'])->name('n
 Route::get('/review',NewsController::class)->name('review');
 Route::post('/news/review_store',[NewsController::class,'store'])->name('news.store');
 // Route::get('/news', [ NewsController::class, 'allNews'])-> name('all_news');
-Route::get('/news/{category_name}', [ NewsController::class, 'index'])-> name('news');
-Route::get('/news/{category_name}/{id}', [ NewsController::class, 'show'])
+Route::get('/news/{category_id}', [ NewsController::class, 'index'])-> name('news');
+Route::get('/news/{category_id}/{id}', [ NewsController::class, 'show'])
 ->where('id', '\d+')
 ->name('news.show');

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function CategoriesList()
 	{
-		$categories = $this->getCategories();
-		return view('news.CategoriesList', [
-			'categoriesList' => $categories,
-		]
-    );
+		$categories = app(Category::class);
+		return view('news.CategoriesList',[
+			'categoriesList' => $categories->getCategories()
+		]);
 	}
 }

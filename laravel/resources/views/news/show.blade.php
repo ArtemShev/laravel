@@ -15,7 +15,7 @@
 	<br>
 	<p>Статус: <em>{{ $news['status'] }}</em></p>
 	<p>Автор: <em>{{ $news['author'] }}</em></p>
-    <p>Категория: <em>{{$news['category_name']}}</em></p>
+    <p>Категория: <em>{{$news['title']}}</em></p>
 	<p>{!! $news['description'] !!}</p>
 </div>
 @endsection

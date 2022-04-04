@@ -8,29 +8,30 @@
     </div>
 @endsection
 @section('content')
+
     @forelse($newsList as $news)
        <div class="col">
          <div class="card shadow-sm">
-             <img src="{{ $news['image'] }}">
+             {{-- <img src="{{ $news->image }}"> --}}
 
            <div class="card-body">
               <strong>
-                <a href="{{route('news.show',['category_name'=>$news['category_name'],'id' => $news['id']])}}">
-                    {{$news['title']}}
+                <a href="{{route('news.show',['category_id'=>$news->category_id,'id' => $news->id])}}">
+                    {{$news->title}}
                 </a>
               </strong>
               <p class="card-text">
-                  {!! $news['description'] !!}
+                  {!! $news->description !!}
               </p>
-              <p class="card-text">Категория: {{$news['category_name']}}</p>
+              <p class="card-text">Категория: {{$news->category_id}}</p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                    <a href="{{route('news.show',['category_name'=>$news['category_name'],'id' => $news['id']])}}">
+                    <a href="{{route('news.show',['category_id'=>$news->category_id,'id' => $news->id])}}">
                         Подробнее
                     </a>
                 </div>
-                  <small class="text-muted">Статус: <em>{{ $news['status'] }}</em></small>
-                  <small class="text-muted">Автор: <em> {{ $news['author'] }}</em></small>
+                  <small class="text-muted">Статус: <em>{{ $news->status }}</em></small>
+                  <small class="text-muted">Автор: <em> {{ $news->status }}</em></small>
             </div>
         </div>
     </div>
