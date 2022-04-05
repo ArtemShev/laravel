@@ -11,8 +11,8 @@
     @forelse($categoriesList as $category)
         <div class="list-group">
             <div class="d-flex gap-2 w-100 justify-content-between">
-            <a href="{{route('news', ['category_id' => $category->id])}}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                <h6 class="mb-0">{{$category->title}}</h6>
+            <a href="{{route('news', ['category_id' => $category['id']])}}" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
+                <h6 class="mb-0">{{$category['title']}}</h6>
             </a>
         </div>
         </div>

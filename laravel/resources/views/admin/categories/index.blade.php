@@ -10,7 +10,41 @@
         </div>
     </div>
 
-    <x-alert type="danger" message="Это сообщение об ошибке"/>
-    <x-alert type="success" message="Это сообщение об успехе"/>
-    <x-alert type="info" message="Это информационное сообщение"/>
+    <div class="table-responsive">
+        @include('inc.messages')
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                  <th>#ID</th>
+                  <th>Колл-во новостей</th>
+                  <th>Заголовок</th>
+                  <th>Описание</th>
+                  <th>Опции</th>
+              </tr>
+            </thead>
+            <tbody>
+              @forelse($categories as $category)
+                  <tr>
+                      <td>{{ $category->id }}</td>
+                      <td>{{ $category->news_count }}</td>
+                      <td>{{ $category->title }}</td>
+                      <td>{{ $category->description }}</td>
+                      <td>
+                          <a href="{{ route('admin.categories.edit', ['category' => $category->id]) }}">Ред.</a>
+                          &nbsp;
+                          <a href="javascript:;" style="color:red;">Удл.</a>
+                      </td>
+                  </tr>
+              @empty
+                  <tr><td colspan="4">Записей нет</td></tr>
+              @endforelse
+            </tbody>
+        </table>
+
+        {{ $categories->links() }}
+    </div>
 @endsection
+
+@push('js')
+    <script>//alert("Welcome")</script>
+@endpush

@@ -9,9 +9,8 @@ class CategoryController extends Controller
 {
     public function CategoriesList()
 	{
-		$categories = app(Category::class);
 		return view('news.CategoriesList',[
-			'categoriesList' => $categories->getCategories()
+			'categoriesList' => Category::all()
 		]);
 	}
 }

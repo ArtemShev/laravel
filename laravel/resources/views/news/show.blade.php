@@ -1,21 +1,29 @@
 
 
-
 @extends('layouts.main')
 @section('header')
-	<div class="row py-lg-5">
-		<div class="col-lg-6 col-md-8 mx-auto">
-			<h1 class="fw-light">{{ $news['title'] }}</h1>
-		</div>
-	</div>
-@endsection
 @section('content')
-<div class="news">
-	<img src="{{$news['image']}}">
-	<br>
-	<p>Статус: <em>{{ $news['status'] }}</em></p>
-	<p>Автор: <em>{{ $news['author'] }}</em></p>
-    <p>Категория: <em>{{$news['title']}}</em></p>
-	<p>{!! $news['description'] !!}</p>
+<div class="col">
+	<div class="card shadow-sm">
+		<img src="{{ $news['title'] }}">
+
+	  <div class="card-body">
+		 <strong>
+			 <a href=" {{ route('news.show', ['category_id'=> $news['category_id'],'id' => $news['id']]) }}">
+				 {{ $news['title'] }}
+			 </a>
+		 </strong>
+		 <p class="card-text">
+			 {!! $news['description'] !!}
+		 </p>
+		 <div class="d-flex justify-content-between align-items-center">
+		   <div class="btn-group">
+			   <a href=" {{ route('news.show', ['category_id'=> $news['category_id'], 'id' => $news['id']]) }}" class="btn btn-sm btn-outline-secondary">Подробнее</a>
+		   </div>
+			 <small class="text-muted">Статус: <em>{{ $news['status'] }}</em></small>
+			 <small class="text-muted">Автор: <em> {{ $news['author'] }}</em></small>
+	   </div>
+   </div>
+</div>
 </div>
 @endsection
