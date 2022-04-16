@@ -10,7 +10,7 @@ use App\Http\Requests\News\EditRequest;
 use App\Http\Requests\News\CreateRequest;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
-
+use Illuminate\Support\Facades\Log;
 class NewsController extends Controller
 {
     /**
@@ -114,7 +114,7 @@ class NewsController extends Controller
 
 			 return response()->json(['status' => 'ok']);
 		}catch (\Exception $e) {
-			\Log::error("News wasn't delete");
+			Log::error("Новость не удалена");
 			return response()->json(['status' => 'error'], 400);
 		}
     }

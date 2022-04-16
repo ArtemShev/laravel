@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="raw">
+    <div class="raw offset-2">
         @include('inc.messages')
         <form method="post" action="{{ route('admin.news.store') }}">
             @csrf

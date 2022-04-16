@@ -19,7 +19,18 @@
                     Новости
                 </a>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link @if(request()->routeIs('admin.users.*')) active @endif" href="{{ route('admin.users.index') }}">
+                    <span data-feather="list"></span>
+                    Пользователи
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('welcome') }}" >
+                    <span data-feather="user"></span>
+                    На страницу пользователя
+                </a>
+            </li>
         </ul>
 
     </div>

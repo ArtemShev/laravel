@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Http\Requests\Categories\CreateRequest;
 use App\Http\Requests\Categories\EditRequest;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Log;
 
 class CategoryController extends Controller
 {
@@ -108,7 +109,7 @@ class CategoryController extends Controller
 
             return response()->json(['status' => 'ok']);
        }catch (\Exception $e) {
-           \Log::error("News wasn't delete");
+           Log::error("News wasn't delete");
            return response()->json(['status' => 'error'], 400);
        }
     }

@@ -8,7 +8,7 @@
 	</div>
 @endsection
 @section('content')
-<div class="welcome-info">
-    <span>Hello, welcome to my news site!</span>
+<div class="row offset-1">
+    <h1>Hello, welcome to my news site!</h1>
 </div>
-@endsection
+@endsectionå

@@ -2,13 +2,13 @@
 @section('title') Добавить категорию @endsection
 @section('content')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Добавить категорию</h1>
+        <h1 class="h2 offset-2">Добавить категорию</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
 
         </div>
     </div>
 
-    <div class="raw">
+    <div class="raw offset-2">
         @include('inc.messages')
         <form method="post" action="{{ route('admin.categories.store') }}">
             @csrf
