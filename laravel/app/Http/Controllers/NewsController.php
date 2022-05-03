@@ -10,20 +10,17 @@ use App\Models\Category;
 
 class NewsController extends Controller
 {
-	public function index($category_id)
+    public function index()
 	{
-
 		return view('news.index', [
-			'newsList' => News::query()->where('category_id','=',$category_id)->get()
+			'newsList' => News::paginate(10)
 		]);
 	}
 
-	public function show($category_id,$id)
+	public function show(News $news)
 	{
-
-
 		return view('news.show', [
-			'news' => News::query()->where([['id','=',$id],['category_id','=',$category_id]])->get()
+			'news' => $news
 		]);
 	}
 

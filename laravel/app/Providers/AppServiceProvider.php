@@ -2,7 +2,13 @@
 
 namespace App\Providers;
 
+use App\Contracts\Parser;
+use App\Contracts\Social;
+use App\Services\ParserService;
+use App\Services\SocialService;
+use App\Services\UploadService;
 use Illuminate\Support\ServiceProvider;
+use phpDocumentor\Reflection\Types\This;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(Parser::class, ParserService::class);
+        $this->app->bind(Social::class, SocialService::class);
+        $this->app->bind(UploadService::class);
     }
 
     /**

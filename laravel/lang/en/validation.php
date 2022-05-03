@@ -158,6 +158,13 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'category_id' => 'Айди категории',
+        'title'       => 'Наименование',
+        'status'      => 'Статус',
+        'author'      => 'Автор',
+        'image'       => 'Изображение',
+        'description' =>'Описание'
+    ],
 
 ];

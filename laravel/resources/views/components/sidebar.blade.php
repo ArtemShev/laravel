@@ -2,23 +2,29 @@
     <div class="position-sticky pt-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link @if(request()->routeIs('admin.index')) active @endif" aria-current="page" href="{{ route('admin.index') }}">
+                <a class="nav-link @if(request()->routeIs('index')) active @endif" aria-current="page" href="{{ route('welcome') }}">
                     <span data-feather="home"></span>
                     Главная
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link @if(request()->routeIs('admin.categories.*')) active @endif" href="{{ route('admin.categories.index') }}">
+                <a class="nav-link @if(request()->routeIs('news.*')) active @endif" href="{{ route('news.CategoryList') }}">
                     <span data-feather="file"></span>
                     Категории
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link @if(request()->routeIs('admin.news.*')) active @endif" href="{{ route('admin.news.index') }}">
-                    <span data-feather="list"></span>
-                    Новости
+            {{-- <li class="nav-item">
+                <a class="nav-link @if(request()->routeIs('parsedNews.*')) active @endif" href="{{ route('parsedNews.index') }}">
+                    <span data-feather="file"></span>
+                    Новости с ресурсов
                 </a>
+            </li> --}}
+
+            {{-- @if (Auth::user()->is_admin)
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('admin.index') }}">На страницу админа</a>
             </li>
+            @endif --}}
 
         </ul>
 

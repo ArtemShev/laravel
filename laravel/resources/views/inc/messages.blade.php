@@ -1,4 +1,4 @@
-@if(session()->has('success'))
+{{-- @if(session()->has('success'))
     <x-alert type="success" :message="session()->get('success')"></x-alert>
 @endif
 
@@ -10,4 +10,4 @@
     @foreach($errors->all() as $error)
         <x-alert type="danger" :message="$error"></x-alert>
     @endforeach
-@endif
+@endif --}}
